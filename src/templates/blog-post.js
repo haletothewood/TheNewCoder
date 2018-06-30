@@ -1,11 +1,11 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 
 export default function Template({ data }) {
   const post = data.markdownRemark
   return (
     <div className="blog-post-container">
-     <Helmet title={`CodeStack - ${post.frontmatter.title}`} />
+      <Helmet title={`CodeStack - ${post.frontmatter.title}`} />
       <div className="blog-post">
         <h1>{post.frontmatter.title}</h1>
         <div
@@ -29,4 +29,3 @@ export const pageQuery = graphql`
     }
   }
 `
-;

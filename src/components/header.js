@@ -16,15 +16,18 @@ const Header = () => (
         padding: '1.45rem 1.0875rem',
       }}
    >
-     <h1 style={{margin: 0, textAlign: 'center',fontSize: '18px'}}>
+     <h1 style={{margin: 0, textAlign: 'center',fontSize: '20px'}}>
         <Link to="/"
           style={{
             color: 'black',
             textDecoration: 'none',
           }}
         >
-          The New Coder
+          &lt;The New Coder/&gt;
         </Link>
+        <a 
+        style={{float: 'right',textAlign: 'center',fontSize: '16px','padding-right': '0.5rem'}}
+        href="https://github.com/haletothewood/TheNewCoder">github</a>
       </h1>
     </div>
   </div>

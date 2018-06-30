@@ -9,7 +9,7 @@ const Sidebar = ({title, description}) => (
         marginBottom: '25px'
       }}
       >
-      <strong>{title}.</strong> {description}
+      <strong>{title}</strong> {description}
   </div>
   );
 

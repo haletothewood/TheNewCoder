@@ -11,9 +11,9 @@ import "../styles/layout-overide.css";
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="The New Coder"
       meta={[
-        { name: "description", content: "Articles on learning to code, and growing as a coder. All articles are written by Me. Fullstack Stuff 'n Junk." },
+        { name: "description", content: "Nuggets of knowledge gleaned by coders, engineers and developers in their first year on the job." },
         { name: "keywords", content: "learn to code, coding, fullstack, react, codenewbie" }
       ]}
     />
@@ -61,12 +61,12 @@ const TemplateWrapper = ({ children }) => (
               </div>
               <div style={{ flex: 1 }}>
                 <Sidebar
-                  title="The New Coder"
-                  description="Articles on learning to code, and growing as a coder. All articles are written by Me. Fullstack Stuff 'n Junk."
+                  title="What is this?"
+                  description="Nuggets of knowledge gleaned by coders, engineers and developers in their first year on the job."
                 />
                 <Sidebar
-                  title="About author"
-                  description="I am a Fullstack Software Engineer specializing in C#, React and DevOps based in Cambridge."
+                  title="Get involved."
+                  description="To submit a story click on the github link in the header and follow the instructions."
                 />
               </div>
             </div>

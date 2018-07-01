@@ -1,26 +1,35 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# The New Coder
+This is the repo for https://the-new-coder.netlify.com.
 
+A website with nuggets of knowledge gleaned by coders, engineers and developers in their first year on the job.
+
+## 💡Inspiration 
+
+Built using the default Gatsby starter.  
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
 
-## Install
+## 🛠️Build
 
 Make sure that you have the Gatsby CLI program installed:
 ```sh
 npm install --global gatsby-cli
 ```
 
-And run from your CLI:
+Clone this repo:
 ```sh
-gatsby new gatsby-example-site
+git clone https://github.com/haletothewood/TheNewCoder.git
 ```
 
-Then you can run it by:
+And run from your CLI:
 ```sh
-cd gatsby-example-site
+cd the-new-coder
 gatsby develop
 ```
 
-## Deploy
+## ✉️Contribute
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+To submit a story please ensure you follow the guidelines (link to be provided). Once completed:
+* create a branch `newstory-[title]`
+* add a folder in the blog section
+* add your markdown file
+* submit a PR 

@@ -23,7 +23,7 @@ const Header = () => (
             textDecoration: 'none',
           }}
         >
-          &lt;The New Coder/&gt;
+          The New Coder
         </Link>
         <a 
         style={{float: 'right',textAlign: 'center',fontSize: '16px','padding-right': '0.5rem'}}

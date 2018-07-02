@@ -1,5 +1,5 @@
 # The New Coder
-This is the repo for https://the-new-coder.netlify.com.
+This is the repo for https://thenewcoder.netlify.com
 
 A website with nuggets of knowledge gleaned by coders, engineers and developers in their first year on the job.
 
@@ -9,7 +9,7 @@ The idea for this came whilst reading the excellent book [97 Things Every Progra
 
 And so...
 
-## ✉️To Contribute
+## ✉️Contribute
 
 To submit a story please ensure you follow the guidelines (link to be provided). Once completed:
 * follow the build instructions below
@@ -39,4 +39,3 @@ gatsby develop
 ## Tech
 Built using the default Gatsby starter, which leverages React and GraphQL.  
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
-

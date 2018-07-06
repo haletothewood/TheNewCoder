@@ -14,21 +14,16 @@ export class Template extends Component {
     const {data} = this.props
     const post = data.markdownRemark
 
-    this.initializeState(post)
+    this.getPost(post)
   }
 
-  getPost = async (post) => {
-    const response = await fetch('https://the-new-coder-api.herokuapp.com/posts/' + `${post.frontmatter.id}`, {
+  getPost = (post) => {
+    fetch('https://the-new-coder-api.herokuapp.com/posts/' + `${post.frontmatter.id}`, {
       method: 'get',
       headers: {'Content-Type': "application/x-www-form-urlencoded"}
     })
-    const result = await response.json()
-    return result
-  }
-
-  initializeState = (post) => {
-    this.getPost(post)
-    .then(res => res.body.item)
+    .then(result => result.json())
+    .then(payload => payload.body.item)
     .then(item => {
       this.setState({
         views: item.views,

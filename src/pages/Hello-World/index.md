@@ -1,4 +1,5 @@
 ---
+id: 0001
 path: "/hello-world"
 date: "2018-07-02T19:59:33.962Z"
 title: "🎉 Hello World 🎉"

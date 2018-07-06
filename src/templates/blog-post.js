@@ -17,19 +17,6 @@ export class Template extends Component {
     this.initializeState(post)
   }
 
-  incrementField = async (field) => {
-    const response = await fetch('https://the-new-coder-api.herokuapp.com/posts', {
-      method: 'patch',
-      headers: {'Content-Type': "application/x-www-form-urlencoded"},
-      body: formurlencoded({
-        "op": "increment",
-        "field": `${field}` 
-      })
-    })
-    const result = await response.json()
-    return result
-  }
-
   getPost = async (post) => {
     const response = await fetch('https://the-new-coder-api.herokuapp.com/posts/' + `${post.frontmatter.id}`, {
       method: 'get',

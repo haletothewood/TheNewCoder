@@ -2,31 +2,17 @@ const path = require('path')
 const fetch = require('node-fetch')
 const formurlencoded = require('form-urlencoded').default
 
-const post = async (node) => {
+const createPostIfNotExist = async (node) => {
   const response = await fetch('https://the-new-coder-api.herokuapp.com/posts', {
     method: 'post',
     headers: {'Content-Type': "application/x-www-form-urlencoded"},
     body: formurlencoded({
-      "title": `${node.frontmatter.title}`
+      "id": node.frontmatter.id,
+      "title": node.frontmatter.title
     })
   })
-  const json = await response
-  console.log(json)
-}
-
-const get = async (node) => {
-  const response = await fetch(`https://the-new-coder-api.herokuapp.com/posts/5b3e9dfd3aeee60014336422`, {
-    method: 'get'
-  })
-  const status = await response.status
-  return status
-}
-
-const sendPostToDb = async (node) => {
-  const response = await get(node)
-  if (response != 200) {
-    post(node)
-   }
+  const result = await response.json()
+  return result
 }
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
@@ -44,6 +30,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             html
             id
             frontmatter {
+              id
               date
               path
               title
@@ -57,7 +44,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       return Promise.reject(result.errors)
     }
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      sendPostToDb(node)
+      createPostIfNotExist(node)
       createPage({
         path: node.frontmatter.path,
         component: blogPostTemplate,

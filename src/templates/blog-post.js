@@ -1,10 +1,59 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 
-export default function Template({ data }) {
-  const post = data.markdownRemark
-  return (
-    <div className="blog-post-container">
+export class Template extends Component {
+  constructor(){
+    super()
+    this.state = { 
+      views: 0,
+      upvotes: 0
+    }
+  }
+
+  componentDidMount() {
+    const {data} = this.props
+    const post = data.markdownRemark
+
+    this.initializeState(post)
+  }
+
+  incrementField = async (field) => {
+    const response = await fetch('https://the-new-coder-api.herokuapp.com/posts', {
+      method: 'patch',
+      headers: {'Content-Type': "application/x-www-form-urlencoded"},
+      body: formurlencoded({
+        "op": "increment",
+        "field": `${field}` 
+      })
+    })
+    const result = await response.json()
+    return result
+  }
+
+  getPost = async (post) => {
+    const response = await fetch('https://the-new-coder-api.herokuapp.com/posts/' + `${post.frontmatter.id}`, {
+      method: 'get',
+      headers: {'Content-Type': "application/x-www-form-urlencoded"}
+    })
+    const result = await response.json()
+    return result
+  }
+
+  initializeState = (post) => {
+    this.getPost(post)
+    .then(res => res.body.item)
+    .then(item => {
+      this.setState({
+        views: item.views,
+        upvotes: item.upvotes
+      })
+    })
+  }
+
+  render() {
+    const {data} = this.props
+    const post = data.markdownRemark
+    return <div className="blog-post-container">
       <Helmet title={`The New Coder - ${post.frontmatter.title}`} />
       <div className="blog-post">
         <h1>{post.frontmatter.title}</h1>
@@ -12,9 +61,12 @@ export default function Template({ data }) {
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+        <div className="blog-post-views"onClick={this.incrementField}>
+          {this.state.views} views
+        </div>
       </div>
     </div>
-  )
+  }
 }
 
 export const pageQuery = graphql`
@@ -30,3 +82,4 @@ export const pageQuery = graphql`
     }
   }
 `
+export default Template;

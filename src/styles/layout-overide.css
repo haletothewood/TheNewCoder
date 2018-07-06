@@ -17,3 +17,6 @@ h1 {
 p, div {
   font-size: 16px;
 }
+.blog-post-views{
+  color: #ed0968;
+}

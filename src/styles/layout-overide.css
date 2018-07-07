@@ -19,4 +19,9 @@ p, div {
 }
 .blog-post-views{
   color: #ed0968;
+  line-height: 35px;
+}
+.blog-post-info{
+  display: flex;
+  justify-content: space-between
 }

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
+import UpvoteIcon from '../icons/upvote-icon'
 
 export class Template extends Component {
   constructor(){
     super()
     this.state = { 
       views: 0,
-      upvotes: 0
+      upvotes: 0,
+      stateInitializing: true
     }
   }
 
@@ -27,9 +29,14 @@ export class Template extends Component {
     .then(item => {
       this.setState({
         views: item.views,
-        upvotes: item.upvotes
+        upvotes: item.upvotes,
+        stateInitializing: false
       })
     })
+  }
+
+  addUpvote= () => {
+    console.log('upvoted')
   }
 
   render() {
@@ -43,8 +50,11 @@ export class Template extends Component {
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-        <div className="blog-post-views"onClick={this.incrementField}>
-          {this.state.views} views
+        <div className="blog-post-info">
+          <UpvoteIcon onClick={this.addUpvote}/>
+          <div className="blog-post-views">
+            {this.state.views} views
+          </div>
         </div>
       </div>
     </div>

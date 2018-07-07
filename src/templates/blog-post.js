@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import UpvoteIcon from '../icons/upvote-icon'
 
+import formurlencoded from 'form-urlencoded';
+
+const FIELD = {
+  VIEWS: "views",
+  UPVOTES: "upvotes"
+}
 export class Template extends Component {
   constructor(){
     super()
@@ -15,13 +21,13 @@ export class Template extends Component {
   componentDidMount() {
     const {data} = this.props
     const post = data.markdownRemark
-
+    this.addView()
     this.getPost(post)
   }
 
   getPost = (post) => {
     fetch('https://the-new-coder-api.herokuapp.com/posts/' + `${post.frontmatter.id}`, {
-      method: 'get',
+      method: 'GET',
       headers: {'Content-Type': "application/x-www-form-urlencoded"}
     })
     .then(result => result.json())
@@ -35,15 +41,35 @@ export class Template extends Component {
     })
   }
 
-  addUpvote= () => {
-    console.log('upvoted')
+  addUpvote = () => {
+    this.incrementField(FIELD.UPVOTES)
+  }
+
+  addView = () => {
+    this.incrementField(FIELD.VIEWS)
+  }
+
+  incrementField = (field) => {
+    const {data} = this.props
+    const post = data.markdownRemark
+
+    fetch('https://the-new-coder-api.herokuapp.com/posts/' + `${post.frontmatter.id}`, {
+      method: "PATCH",
+      headers: {'Content-Type': "application/x-www-form-urlencoded"},
+      body: formurlencoded({
+        "field": field
+      })
+    })
+    .then(() => this.getPost(post))
   }
 
   render() {
     const {data} = this.props
     const post = data.markdownRemark
     return <div className="blog-post-container">
-      <Helmet title={`The New Coder - ${post.frontmatter.title}`} />
+      <Helmet 
+      title={`The New Coder - ${post.frontmatter.title}`} 
+      />
       <div className="blog-post">
         <h1>{post.frontmatter.title}</h1>
         <div
@@ -51,9 +77,14 @@ export class Template extends Component {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <div className="blog-post-info">
-          <UpvoteIcon onClick={this.addUpvote}/>
+          <div className="blog-post-upvotes bounce">
+            <UpvoteIcon 
+            onClick={this.addUpvote}
+            upvoteCount={this.state.upvotes}
+            />
+          </div>
           <div className="blog-post-views">
-            {this.state.views} views
+            {this.state.stateInitializing ? "loading": this.state.views} views
           </div>
         </div>
       </div>

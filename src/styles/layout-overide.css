@@ -21,7 +21,15 @@ p, div {
   color: #ed0968;
   line-height: 35px;
 }
-.blog-post-info{
+.blog-post-info, .upvote{
   display: flex;
   justify-content: space-between
+}
+.blog-post-upvotes:active {
+  transform: translateY(-5px)
+}
+.superscript { 
+  position: relative; 
+  top: -0.5em; 
+  font-size: 80%; 
 }

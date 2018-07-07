@@ -37,6 +37,6 @@ gatsby develop
 ```
 
 ## Tech
-Built using the default Gatsby starter, which leverages React and GraphQL.
-Consumes a node.js express API for recording upvotes and views per post.
+Built using the default Gatsby starter, which leverages React and GraphQL.  
+Consumes a Node.js [Express API](https://github.com/haletothewood/TheNewCoder.API) for recording upvotes and views per post.  
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).

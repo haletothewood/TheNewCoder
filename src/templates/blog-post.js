@@ -76,6 +76,7 @@ export class Template extends Component {
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+        {!this.state.stateInitializing &&
         <div className="blog-post-info">
           <div className="blog-post-upvotes bounce">
             <UpvoteIcon 
@@ -84,9 +85,9 @@ export class Template extends Component {
             />
           </div>
           <div className="blog-post-views">
-            {this.state.stateInitializing ? "loading": this.state.views} views
+            {this.state.views} views
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   }

@@ -14,7 +14,7 @@ And so...
 To submit a story please ensure you follow the guidelines (link to be provided). Once completed:
 * follow the build instructions below
 * create a branch `newstory-[title]`
-* add a folder in the blog section
+* add a folder in the \src/pages directory
 * add your markdown file
 * submit a PR 
 

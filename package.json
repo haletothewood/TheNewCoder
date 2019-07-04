@@ -14,7 +14,8 @@
     "gatsby-transformer-remark": "^1.7.44",
     "node-fetch": "^2.1.2",
     "react-helmet": "^5.2.0",
-    "react-media": "^1.8.0"
+    "react-media": "^1.8.0",
+    "snyk": "^1.189.0"
   },
   "keywords": [
     "gatsby"
@@ -24,7 +25,9 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "prettier": "^1.12.0"
@@ -32,5 +35,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  }
+  },
+  "snyk": true
 }

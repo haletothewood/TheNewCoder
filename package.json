@@ -6,7 +6,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "form-urlencoded": "^3.0.0",
-    "gatsby": "^1.9.247",
+    "gatsby": "^2.23.20",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-react-helmet": "^2.0.11",

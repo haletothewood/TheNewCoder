@@ -6,13 +6,13 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "form-urlencoded": "^3.0.0",
-    "gatsby": "^1.9.247",
+    "gatsby": "^2.1.1",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-react-helmet": "^2.0.11",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
-    "node-fetch": "^2.1.2",
+    "node-fetch": "^2.6.7",
     "react-helmet": "^5.2.0",
     "react-media": "^1.8.0"
   },
